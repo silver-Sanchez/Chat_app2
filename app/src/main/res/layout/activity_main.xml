@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/activity_main"
     tools:context=".MainActivity">
 
     <androidx.appcompat.widget.AppCompatButton
@@ -15,7 +16,7 @@
         android:layout_margin="30px"
         android:background="#4A5151"
         android:clickable="true"
-        android:src="@drawable/ic_sendButton"
+        android:src="@drawable/ic_send_button"
         android:text="отправить"
         android:textColor="@color/white"
         android:tint="@color/black"
@@ -43,7 +44,7 @@
             android:layout_alignParentBottom="true"
             android:layout_toStartOf="@id/buttonSend"
             android:layout_toLeftOf="@id/buttonSend"
-            android:hint="введите текст"
+            android:hint="@string/text"
             tools:layout_editor_absoluteX="12dp"
             tools:ignore="MissingConstraints,NotSibling" />
 

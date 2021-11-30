@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Chat_App</string>
+    <string name="text">введите текст</string>
 </resources>
