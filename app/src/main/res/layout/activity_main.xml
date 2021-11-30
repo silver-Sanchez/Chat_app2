@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonSend"
+        android:layout_width="153dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="30px"
+        android:background="#4A5151"
+        android:clickable="true"
+        android:src="@drawable/ic_sendButton"
+        android:text="отправить"
+        android:textColor="@color/white"
+        android:tint="@color/black"
+        app:fabSize="normal" />
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:id="@+id/text_layat"
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="30px"
+        android:layout_toEndOf="@id/buttonSend"
+        android:background="#D3D6D6">
+
+
+        <EditText
+            android:id="@+id/message"
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_toStartOf="@id/buttonSend"
+            android:layout_toLeftOf="@id/buttonSend"
+            android:hint="введите текст"
+            tools:layout_editor_absoluteX="12dp"
+            tools:ignore="MissingConstraints,NotSibling" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ListView
+        android:id="@+id/list_item"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/text_layat"
+        android:layout_margin="30px"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="12px"
+        />
+
+</RelativeLayout>
