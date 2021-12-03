@@ -9,6 +9,7 @@ public class Message {
     public String textmessage;
     private long messagetime;
 
+
     public Message(){}
     public Message (String username, String textmessage){
 
