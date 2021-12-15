@@ -1,24 +1,22 @@
 package com.example.chat_app;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.database.FirebaseListAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
-
-import android.text.format.DateFormat;
+import com.firebase.client.Firebase;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private RelativeLayout activity_main;
     private FirebaseListAdapter<Message> adapter;
     private FloatingActionButton sendBtn;
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -53,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {   //тут прописываем весь функционал который должен срабатывать при нажатии на кнопку
 
-                EditText textField = findViewById(R.id.message);
+                EditText textField = findViewById(R.id.messageField);
                 if (textField.getText().toString()=="")
                     return;
                 FirebaseDatabase.getInstance().getReference().push().setValue(
@@ -68,13 +67,14 @@ public class MainActivity extends AppCompatActivity {
         if (FirebaseAuth.getInstance().getCurrentUser() == null)
             startActivityForResult(AuthUI.getInstance().createSignInIntentBuilder().build(), SIGN_IN_CODE); // фунцция startActivityForResult помогает авторизовать пользов
         else {
-            Snackbar.make(activity_main, "привет", Snackbar.LENGTH_LONG).show();
+            Snackbar.make(activity_main, "вы авторизовались", Snackbar.LENGTH_SHORT).show();
             displayAllmessages();
         }
     }
 
     private void displayAllmessages() {
-        ListView listOfMessages = findViewById(R.id.text_layat);
+        ListView listOfMessages = findViewById(R.id.list_of_message);
+
         adapter = new FirebaseListAdapter<Message>(this, Message.class, R.layout.list_item, FirebaseDatabase.getInstance().getReference()) { //R.layout.list_item обращение к файлу
             @Override                                                                               //FirebaseDatabase.getInstance().getReference()) подключение к бд
             protected void populateView(View v, Message model, int position) {

@@ -7,20 +7,21 @@
     android:id="@+id/activity_main"
     tools:context=".MainActivity">
 
-    <androidx.appcompat.widget.AppCompatButton
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/buttonSend"
         android:layout_width="153dp"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:layout_margin="30px"
-        android:background="#4A5151"
+        android:background="#D24A5151"
         android:clickable="true"
         android:src="@drawable/ic_send_button"
         android:text="отправить"
         android:textColor="@color/white"
         android:tint="@color/black"
-        app:fabSize="normal" />
+        app:fabSize="normal"
+        android:contentDescription="TODO" />
 
 
 
@@ -33,11 +34,12 @@
         android:layout_alignParentBottom="true"
         android:layout_margin="30px"
         android:layout_toEndOf="@id/buttonSend"
-        android:background="#D3D6D6">
+        android:background="#0E5AF1"
+        tools:ignore="MissingClass">
 
 
         <EditText
-            android:id="@+id/message"
+            android:id="@+id/messageField"
             android:layout_width="match_parent"
             android:layout_height="49dp"
             android:layout_alignParentLeft="true"
@@ -45,6 +47,7 @@
             android:layout_toStartOf="@id/buttonSend"
             android:layout_toLeftOf="@id/buttonSend"
             android:hint="@string/text"
+            android:background="#FFFFFF"
             tools:layout_editor_absoluteX="12dp"
             tools:ignore="MissingConstraints,NotSibling" />
 
@@ -53,13 +56,15 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ListView
-        android:id="@+id/list_item"
+        android:id="@+id/list_of_message"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/text_layat"
-        android:layout_margin="30px"
+        android:layout_marginStart="30px"
+        android:layout_marginTop="30px"
+        android:layout_marginEnd="30px"
+        android:layout_marginBottom="30px"
         android:divider="@android:color/transparent"
-        android:dividerHeight="12px"
-        />
+        android:dividerHeight="12px" />
 
 </RelativeLayout>
